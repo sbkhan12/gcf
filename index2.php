@@ -22,43 +22,34 @@ if ($currentCategory !== 'All' && !in_array($currentCategory, $categories)) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Moshaz Salon</title>
+  <meta charset="UTF-8">
+  <title>GlamConnect - Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="homepagestyle.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="https://unpkg.com/alpinejs"></script>
 </head>
 <body class="bg-gray-50">
 
-<!-- Navbar -->
-<div class="navbar shadow-xl px-6 py-4 flex justify-between items-center bg-white">
-  <div class="logo text-xl font-bold">GlamConnect</div>
-  <nav>
-    <ul class="flex space-x-6">
-      <li class="hover:underline"><a href="#">Services</a></li>
-      <li class="hover:underline"><a href="logout.php">Logout</a></li>
-    </ul>
-  </nav>
-</div>
+  <!-- Header -->
+  <header class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-black">GlamConnect</h1>
+      <nav>
+        <ul class="flex gap-6 text-gray-700">
+          <li><a href="/gcf/backend/dashboard_business.php" class="hover:text-black">Dashboard</a></li>
+          <li><a href="about.html" class="hover:text-black">About</a></li>
+          <li><a href="Business_login.html" class="hover:text-black">Business Login</a></li>
+          <li><a href="customer_login.html" class="hover:text-black">Customer Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
 <!-- Carousel -->
-<div id="carouselExampleCaptions" class="carousel slide mx-auto mt-4" style="width: 90%; max-width: 1300px">
-  <div class="carousel-inner">
-    <div class="carousel-item active"><img src="public/moshaz cero2.jpg" class="d-block w-100" style="height:480px" /></div>
-    <div class="carousel-item"><img src="public/moshaz cero 3.jpg" class="d-block w-100" style="height:480px" /></div>
-    <div class="carousel-item"><img src="public/moshaz cero4.jpg" class="d-block w-100" style="height:480px" /></div>
+  <div class="relative mt-6 max-w-6xl mx-auto overflow-hidden rounded-lg shadow-lg" x-data="{ active: 0, slides: ['public/moshaz cero2.jpg', 'public/moshaz cero 3.jpg', 'public/moshaz cero4.jpg'] }" x-init="setInterval(() => active = (active + 1) % slides.length, 4000)">
+    <template x-for="(slide, index) in slides" :key="index">
+      <img :src="slide" x-show="active === index" class="w-full h-[480px] object-cover transition-opacity duration-700">
+    </template>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-  </button>
-</div>
-
 <!-- Add New Service -->
 <div class="flex justify-center my-4">
   <a href="add_service.php" class="px-6 py-2 rounded-xl border bg-green-600 text-white font-semibold hover:bg-green-700 shadow-lg">
@@ -117,35 +108,33 @@ if (count($services) > 0):
 <?php endif; ?>
 
 <!-- Footer -->
-<div class="footer bg-gray-100 mt-10 py-8">
-  <div class="container mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+  <footer class="bg-black text-white mt-20 py-10 px-10">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div>
-        <h3 class="font-bold text-lg mb-2">About GlamConnect</h3>
+        <h4 class="font-bold mb-2">About GlamConnect</h4>
         <ul>
-          <li class="hover:underline"><a href="#">Careers</a></li>
-          <li class="hover:underline"><a href="#">Career Support</a></li>
+          <li><a href="#" class="hover:underline">Careers</a></li>
+          <li><a href="#" class="hover:underline">Career Support</a></li>
         </ul>
       </div>
       <div>
-        <h3 class="font-bold text-lg mb-2">For Business</h3>
+        <h4 class="font-bold mb-2">For Business</h4>
         <ul>
-          <li class="hover:underline"><a href="#">Partners</a></li>
-          <li class="hover:underline"><a href="#">Support</a></li>
-          <li class="hover:underline"><a href="#">Status</a></li>
+          <li><a href="#" class="hover:underline">For Partners</a></li>
+          <li><a href="#" class="hover:underline">Support</a></li>
+          <li><a href="#" class="hover:underline">Status</a></li>
         </ul>
       </div>
       <div>
-        <h3 class="font-bold text-lg mb-2">Social Media</h3>
+        <h4 class="font-bold mb-2">Social Media</h4>
         <ul>
-          <li class="hover:underline"><a href="#">Facebook</a></li>
-          <li class="hover:underline"><a href="#">Instagram</a></li>
-          <li class="hover:underline"><a href="#">Twitter</a></li>
+          <li><a href="#" class="hover:underline">Facebook</a></li>
+          <li><a href="#" class="hover:underline">Instagram</a></li>
+          <li><a href="#" class="hover:underline">Twitter</a></li>
         </ul>
       </div>
     </div>
-  </div>
-</div>
-
+  </footer>
 </body>
 </html>

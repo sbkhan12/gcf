@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
       </div>
       <nav class="mt-6">
         <a href="dashboard_business.php" class="block px-6 py-2.5 hover:bg-gray-200">Dashboard</a>
-        <a href="appointments.php" class="block px-6 py-2.5 hover:bg-gray-200">My Appointments</a>
+        <a href="dashboard_business.php" class="block px-6 py-2.5 hover:bg-gray-200">My Appointments</a>
         <a href="../index2.php" class="block px-6 py-2.5 hover:bg-gray-200">Service Listings</a>
         <a href="reviews.php" class="block px-6 py-2.5 hover:bg-gray-200">Customer Reviews</a>
         <a href="logout.php" class="block px-6 py-2.5 text-red-600 hover:bg-red-100">Logout</a>

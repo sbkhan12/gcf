@@ -13,6 +13,7 @@ $salons = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <meta charset="UTF-8">
   <title>GlamConnect - Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  
 </head>
 
 <body class="bg-gray-50">
@@ -22,7 +23,7 @@ $salons = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <nav>
         <ul class="flex gap-6">
           <li><a href="#" class="hover:underline">Services</a></li>
-          <li><a href="#" class="hover:underline">About</a></li>
+          <li><a href="about.html" class="hover:underline">About</a></li>
           <li><a href="Business_login.html" class="hover:underline">Business Login</a></li>
           <li><a href="customer_login.html" class="hover:underline">Customer Login</a></li>
         </ul>
@@ -56,7 +57,7 @@ $salons = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
   </section>
 
-  <footer class="bg-gray-100 mt-20 py-10 px-10">
+  <footer class="bg-black text-white mt-20 py-10 px-10">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div>
         <h4 class="font-bold mb-2">About GlamConnect</h4>
