@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Customer Signup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+  <div class="bg-white p-8 rounded-lg shadow-2xl w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-6 text-center">Create a Customer Account</h2>
+    <form action="backend/customer_signup.php" method="POST">
+      <div class="mb-4">
+        <input type="text" name="name" placeholder="Full Name" required class="w-full p-3 border-2 rounded-md focus:outline-none focus:border-blue-400"/>
+      </div>
+      <div class="mb-4">
+        <input type="email" name="email" placeholder="Email" required class="w-full p-3 border-2 rounded-md focus:outline-none focus:border-blue-400"/>
+      </div>
+      <div class="mb-4">
+        <input type="password" name="password" placeholder="Password" required class="w-full p-3 border-2 rounded-md focus:outline-none focus:border-blue-400"/>
+      </div>
+      <div class="mb-4">
+        <input type="password" name="cpassword" placeholder="Confirm Password" required class="w-full p-3 border-2 rounded-md focus:outline-none focus:border-blue-400"/>
+      </div>
+      <div class="mb-4">
+        <input type="text" name="phone" placeholder="Phone Number" required class="w-full p-3 border-2 rounded-md focus:outline-none focus:border-blue-400"/>
+      </div>
+      <div class="mb-4">
+        <select name="city" required class="w-full p-3 border-2 rounded-md focus:outline-none focus:border-blue-400">
+          <option value="" disabled selected>Select City</option>
+          <option value="Rawalpindi">Rawalpindi</option>
+          <option value="Islamabad">Islamabad</option>
+          <option value="Lahore">Lahore</option>
+          <option value="Karachi">Karachi</option>
+        </select>
+      </div>
+      <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-semibold shadow-md">
+        Sign Up
+      </button>
+    </form>
+  </div>
+</body>
+</html>
