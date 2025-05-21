@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login to Glam Connect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="">
+
+    <div class="w-ml-96">
+        <div align="center" id="left" class="">
+
+            <h1 class="text-4xl font-semibold mb-6 mt-24 ">Glam Connect for Admin</h1>
+            <p class="w-96 text-center text-gray-400 mb-3">Manage the website as an admin and provide users the best
+                experience.</p>
+
+            <form action="admin_login_backend.php" method="POST"> <!-- Added action and method -->
+                <div>
+                    <input type="email" name="email" id="email" placeholder="Email address"
+                        class="pl-3 pr-36 p-3 rounded-md border-2 mb-3 ml-9 shadow-xl hover:border-gray-500 hover:pl-5" required>
+                </div>
+
+                <input type="password" name="password" id="password" placeholder="Password"
+                    class="border-2 p-3 pl-3 pr-36 rounded-md ml-9 shadow-xl hover:border-gray-500 hover:pl-5" required>
+
+                <div>
+                    <input type="submit" value="Login"
+                        class="button p-2 mt-3 ml-7 border-2 cursor-pointer mb-3 text-center pl-20 pr-20 shadow-xl rounded-md hover:pl-28 hover:pr-28 text-gray-400 hover:text-black hover:border-gray-500 ">
+                </div>
+            </form>
+
+            <hr class="w-80 ml-8 mt-3 mb-3">
+            <h1 class="ml-11 font-medium">Have a Business account?</h1>
+            <a href="" class="ml-11 mb-3 cursor-pointer hover:font-semibold">Sign in as a professional</a>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

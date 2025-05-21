@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Signup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="">
+    <div align="center">
+        <div class="mt-5 w-fit p-7">
+            <h1 class="text-3xl font-semibold mb-5">Create a Professional Account</h1>
+            <form action="signup.php" method="POST">
+                <div class="mb-4">
+                    <input type="text" name="owner" placeholder="Owner name" required class="p-2 border-2 rounded-lg hover:border-gray-500 shadow-2xl cursor-pointer w-80">
+                </div>
+                <div>
+                    <input type="text" name="salon" placeholder="Salon Name" required class="p-2 border-2 rounded-lg hover:border-gray-500 shadow-2xl cursor-pointer w-80">
+                </div>
+                <div class="mt-4 mb-4">
+                    <input type="email" name="email" placeholder="Email" required class="p-2 border-2 rounded-lg hover:border-gray-500 shadow-2xl cursor-pointer w-80">
+                </div>
+                <div class="mt-4 mb-4">
+                    <input type="password" name="password" placeholder="Password" required class="p-2 border-2 rounded-lg hover:border-gray-500 shadow-xl cursor-pointer w-80">
+                </div>
+                <div class="mt-4 mb-4">
+                    <input type="password" name="cpassword" placeholder="Confirm Password" required class="p-2 border-2 rounded-lg hover:border-gray-500 shadow-2xl cursor-pointer w-80">
+                </div>
+                <div>
+                    <input type="text" name="address" placeholder="Address" required class="p-2 border-2 rounded-lg hover:border-gray-500 shadow-2xl w-96 cursor-pointer">
+                </div>
+                <div class="mt-4">
+                    <select name="city" required class="rounded-md shadow-xl hover:border-gray-500 cursor-pointer border-2 p-2 w-80">
+                        <option value="" disabled selected>City</option>
+                        <option value="Rawalpindi">Rawalpindi</option>
+                        <option value="Islamabad">Islamabad</option>
+                        <option value="Lahore">Lahore</option>
+                        <option value="Karachi">Karachi</option>
+                    </select>
+                </div>
+                <div>
+                    <button type="submit" class="border-2 mt-3 rounded-xl p-5 w-64 shadow-2xl hover:border-gray-500 hover:pl-5">Create Account</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
