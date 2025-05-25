@@ -2,59 +2,78 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Business Login</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Business Login - GlamConnect</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-  <div class="flex">
-    <img src="public/professionl.jpg" alt="girl image" class="image">
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+  <div class="flex flex-col lg:flex-row w-full max-w-5xl bg-white rounded-lg shadow-lg overflow-hidden">
+    
+    <!-- Left Image Section -->
+    <div class="lg:w-1/2 hidden lg:block">
+      <img src="public/professionl.jpg" alt="Professional" class="object-cover h-full w-full" />
+    </div>
 
-    <div align="right" id="left" class="p-10">
+    <!-- Right Form Section -->
+    <div class="w-full lg:w-1/2 p-10 flex flex-col justify-center">
+      <h1 class="text-3xl font-bold text-center text-gray-800 mb-4">GlamConnect for Business</h1>
+      <p class="text-center text-gray-500 mb-6">Login to manage your business</p>
 
-      <h1 class="text-4xl font-semibold mb-6 mt-10">Glam Connect for Business</h1>
-      <p class="min-w-96 text-center text-gray-400 mb-3 ml-28">Login to manage your business.</p>
+      <!-- Error Message Placeholder -->
+      <?php if (isset($_GET['error'])): ?>
+        <p class="text-red-500 text-sm text-center mb-4"><?= htmlspecialchars($_GET['error']) ?></p>
+      <?php endif; ?>
 
       <!-- Login Form -->
-      <form method="POST" action="backend/login_backend.php">
-        <div class="mb-4">
+      <form method="POST" action="backend/login_backend.php" class="space-y-4">
+        <div>
+          <label for="email" class="block text-gray-700 mb-1">Email Address</label>
           <input type="email" name="email" id="email" placeholder="Email address"
-            class="mr-2 pl-3 pr-36 p-3 rounded-md border-2 mb-3 shadow-xl ml-4 hover:border-gray-500 hover:pl-5" required>
-        </div>
-
-        <div class="mb-4">
-          <input type="password" name="password" id="password" placeholder="Password"
-            class="mr-2 border-2 p-3 pl-3 pr-36 rounded-md ml-4 shadow-xl hover:border-gray-500 hover:pl-5" required>
+            class="w-full border px-4 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black"
+            required>
         </div>
 
         <div>
+          <label for="password" class="block text-gray-700 mb-1">Password</label>
+          <input type="password" name="password" id="password" placeholder="Password"
+            class="w-full border px-4 py-2 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black"
+            required>
+        </div>
+
+        <div class="text-center">
           <input type="submit" value="Login"
-            class="mr-20 p-2 mt-3 ml-7 border-2 cursor-pointer mb-3 text-center pl-20 pr-20 border-x-gray rounded-md text-gray-400 hover:text-black hover:border-gray-500 shadow-xl">
+            class="bg-black text-white px-6 py-2 rounded-md hover:bg-gray-800 transition-colors cursor-pointer w-full">
         </div>
       </form>
 
-      <hr class="w-80 ml-11 mt-3 mb-3 mr-2">
-      <h1 class="font-medium mr-16 mb-4"> <a href="business_signup.html">Don't have a Business account? signup here </a></h1>
+      <div class="my-4 text-center">
+        <hr class="my-4" />
+        <a href="business_signup.html" class="text-sm text-blue-600 hover:underline">Don't have a business account? Sign up here</a>
+      </div>
 
-      <button type="button"
-        class="mr-10 flex justify-center items-center bg-blue-500 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-64 h-9 transition ease-in duration-200 text-center text-base font-semibold shadow-xl rounded-lg hover:bg-blue-600 hover:text-white mb-4">
-        <svg width="29" height="20" fill="white" class="mr-2 hover:fill-white" viewBox="0 0 1792 1792"
-          xmlns="http://www.w3.org/2000/svg">
-          <path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"></path>
-        </svg>
-        Continue with Facebook
-      </button>
-      <button type="button"
-        class="flex justify-center items-center bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-64 h-9 transition ease-in duration-200 text-center text-base font-semibold shadow-xl mr-10 rounded-lg">
-        <svg width="20" height="20" fill="currentColor" class="mr-2" viewBox="0 0 1792 1792"
-          xmlns="http://www.w3.org/2000/svg">
-          <path d="M896 786h725q12 67 12 128 0 217-91 387.5t-259.5 266.5-386.5 96q-157 0-299-60.5t-245-163.5-163.5-245-60.5-299 60.5-299 163.5-245 245-163.5 299-60.5q300 0 515 201l-209 201q-123-119-306-119-129 0-238.5 65t-173.5 176.5-64 243.5 64 243.5 173.5 176.5 238.5 65q87 0 160-24t120-60 82-82 51.5-87 22.5-78h-436v-264z"></path>
-        </svg>
-        Continue with Google
-      </button>
+      <!-- Social Logins -->
+      <div class="space-y-3">
+        <button
+          class="flex justify-center items-center bg-blue-600 text-white w-full py-2 rounded-md hover:bg-blue-700 transition">
+          <svg width="24" height="24" fill="white" class="mr-2" viewBox="0 0 24 24">
+            <path d="M22 12c0-5.522-4.478-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.876v-6.99h-2.54v-2.886h2.54V9.797c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.464h-1.26c-1.243 0-1.63.772-1.63 1.562v1.875h2.773l-.443 2.886h-2.33v6.99C18.343 21.128 22 16.991 22 12z"/>
+          </svg>
+          Continue with Facebook
+        </button>
+
+        <button
+          class="flex justify-center items-center bg-red-600 text-white w-full py-2 rounded-md hover:bg-red-700 transition">
+          <svg width="20" height="20" fill="currentColor" class="mr-2" viewBox="0 0 24 24">
+            <path d="M21.805 10.023H12v3.955h5.648c-.244 1.278-1.047 2.355-2.23 3.05v2.554h3.616c2.118-1.951 3.336-4.829 3.336-8.35 0-.702-.063-1.384-.185-2.046z"/>
+            <path d="M12 22c2.43 0 4.47-.803 5.96-2.176l-3.616-2.554c-.999.672-2.272 1.068-3.68 1.068-2.83 0-5.233-1.905-6.086-4.474H1.869v2.805C3.352 19.732 7.343 22 12 22z"/>
+            <path d="M5.914 13.864a6.948 6.948 0 010-3.728V7.331H1.869a10.004 10.004 0 000 9.338l4.045-2.805z"/>
+            <path d="M12 5.91c1.32 0 2.504.456 3.437 1.35l2.572-2.572C16.47 3.247 14.43 2.445 12 2.445 7.343 2.445 3.352 4.713 1.869 7.331l4.045 2.805C6.767 7.814 9.17 5.91 12 5.91z"/>
+          </svg>
+          Continue with Google
+        </button>
+      </div>
     </div>
   </div>
 </body>

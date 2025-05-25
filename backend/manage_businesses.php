@@ -7,6 +7,15 @@ if (!isset($_SESSION['admin_id'])) {
     exit();
 }
 
+// Handle delete request
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
+    $deleteId = $_POST['delete_id'];
+    $stmt = $conn->prepare("DELETE FROM business_users WHERE id = ?");
+    $stmt->execute([$deleteId]);
+    header("Location: " . $_SERVER['PHP_SELF']); // refresh
+    exit();
+}
+
 $stmt = $conn->query("SELECT id, salon, email, city, created_at FROM business_users ORDER BY created_at DESC");
 $businesses = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -18,29 +27,83 @@ $businesses = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <title>Manage Businesses - Admin</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 p-8">
-  <h1 class="text-3xl mb-6 font-bold">Manage Businesses</h1>
-  <table class="min-w-full bg-white rounded shadow">
-    <thead>
-      <tr>
-        <th class="px-6 py-3 border-b text-left">ID</th>
-        <th class="px-6 py-3 border-b text-left">Salon</th>
-        <th class="px-6 py-3 border-b text-left">Email</th>
-        <th class="px-6 py-3 border-b text-left">City</th>
-        <th class="px-6 py-3 border-b text-left">Joined</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php foreach ($businesses as $biz): ?>
-        <tr class="hover:bg-gray-100">
-          <td class="px-6 py-4 border-b"><?= htmlspecialchars($biz['id']) ?></td>
-          <td class="px-6 py-4 border-b"><?= htmlspecialchars($biz['salon']) ?></td>
-          <td class="px-6 py-4 border-b"><?= htmlspecialchars($biz['email']) ?></td>
-          <td class="px-6 py-4 border-b"><?= htmlspecialchars($biz['city']) ?></td>
-          <td class="px-6 py-4 border-b"><?= htmlspecialchars($biz['created_at']) ?></td>
-        </tr>
-      <?php endforeach; ?>
-    </tbody>
-  </table>
+<body class="bg-gray-50">
+  <!-- Header -->
+  <header class="shadow-xl bg-white">
+    <div class="container mx-auto px-6 py-4 flex flex-wrap justify-between items-center">
+      <h1 class="text-2xl font-bold">GlamConnect</h1>
+      <nav>
+        <ul class="flex flex-col sm:flex-row gap-4 text-gray-700">
+          <li><a href="dashboard_admin.php" class="hover:underline">Dashboard</a></li>
+          <li><a href="about.html" class="hover:underline">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto mt-10 px-4 sm:px-8">
+    <h2 class="text-3xl font-bold mb-6 text-gray-800">Manage Businesses</h2>
+    <div class="overflow-x-auto bg-white rounded-lg shadow">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">ID</th>
+            <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">Salon</th>
+            <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">Email</th>
+            <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">City</th>
+            <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">Joined</th>
+            <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">Action</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <?php foreach ($businesses as $biz): ?>
+          <tr class="hover:bg-gray-50">
+            <td class="px-6 py-4 text-sm"><?= htmlspecialchars($biz['id']) ?></td>
+            <td class="px-6 py-4 text-sm"><?= htmlspecialchars($biz['salon']) ?></td>
+            <td class="px-6 py-4 text-sm"><?= htmlspecialchars($biz['email']) ?></td>
+            <td class="px-6 py-4 text-sm"><?= htmlspecialchars($biz['city']) ?></td>
+            <td class="px-6 py-4 text-sm"><?= htmlspecialchars($biz['created_at']) ?></td>
+            <td class="px-6 py-4 text-sm">
+              <form method="POST" onsubmit="return confirm('Are you sure you want to delete this business?');">
+                <input type="hidden" name="delete_id" value="<?= $biz['id'] ?>">
+                <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm">Delete</button>
+              </form>
+            </td>
+          </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white mt-20 py-10 px-10">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+      <div>
+        <h4 class="font-bold mb-2">About GlamConnect</h4>
+        <ul>
+          <li><a href="#" class="hover:underline">Careers</a></li>
+          <li><a href="#" class="hover:underline">Career Support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">For Business</h4>
+        <ul>
+          <li><a href="#" class="hover:underline">For Partners</a></li>
+          <li><a href="#" class="hover:underline">Support</a></li>
+          <li><a href="#" class="hover:underline">Status</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-2">Social Media</h4>
+        <ul>
+          <li><a href="#" class="hover:underline">Facebook</a></li>
+          <li><a href="#" class="hover:underline">Instagram</a></li>
+          <li><a href="#" class="hover:underline">Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

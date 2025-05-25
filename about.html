@@ -1,82 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GlamConnect - Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-50">
-  <header class="shadow-xl bg-white">
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold">GlamConnect</h1>
+      <h1 class="text-2xl font-bold text-black-600">GlamConnect</h1>
       <nav>
-        <ul class="flex gap-6">
-          <li><a href="index.php" class="hover:underline">Home</a></li>
-          <li><a href="about.html" class="hover:underline">About</a></li>
-          <li><a href="Business_login.html" class="hover:underline">Business Login</a></li>
-          <li><a href="customer_login.html" class="hover:underline">Customer Login</a></li>
+        <ul class="flex gap-6 text-sm sm:text-base">
+          <li><a href="index.php" class="hover:text-pink-600 font-medium">Home</a></li>
+          <li><a href="about.html" class="hover:text-pink-600 font-medium">About</a></li>
+          <li><a href="navigation.html" class="hover:text-pink-600 font-medium">Login</a></li>
+          <li><a href="business_signup.html" class="hover:text-pink-600 font-medium">List Your Business</a></li>
         </ul>
       </nav>
     </div>
   </header>
-   
-  <!-- Main Content -->
-  <main class="max-w-4xl mx-auto p-8 bg-white mt-8 rounded-lg shadow">
-    <h2 class="text-3xl font-bold text-gray-800 mb-4">About Glam Connect</h2>
-    <p class="text-gray-700 mb-6">
-      Glam Connect is your one-stop digital platform for discovering and booking beauty and salon services. Whether you're looking for a haircut, spa treatment, or a full makeover, Glam Connect connects you with trusted professionals across your city, all from the comfort of your home.
-    </p>
 
-    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Why Glam Connect?</h3>
-    <ul class="list-disc list-inside text-gray-700 mb-6">
-      <li>Find and book appointments with top-rated salons and beauty professionals.</li>
-      <li>Manage bookings, view history, and track appointment status in real-time.</li>
-      <li>For business owners: manage services, view customer data, and grow your brand online.</li>
-    </ul>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-pink-100 to-gray-50 py-16">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="text-4xl sm:text-5xl font-bold mb-4 text-black-700">Find Beauty Services Near You</h2>
+      <p class="text-lg text-gray-700 mb-6">
+        Book appointments with top-rated salons and beauty professionals in your area — anytime, anywhere.
+      </p>
+      <a href="navigation.html" class="inline-block bg-black text-white px-6 py-3 rounded-full text-lg hover:bg-pink-700 transition">
+        Get Started
+      </a>
+    </div>
+  </section>
 
-    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Who We Serve</h3>
-    <p class="text-gray-700 mb-6">
-      Glam Connect is designed for:
-      <ul class="list-disc list-inside ml-4">
-        <li><strong>Customers</strong> looking for convenient and reliable beauty services.</li>
-        <li><strong>Salon Owners</strong> who want to grow their business and streamline appointments.</li>
-        <li><strong>Admins</strong> who manage and oversee the platform's health and user base.</li>
+  <!-- About Section -->
+  <main class="max-w-5xl mx-auto px-6 py-12">
+    <section class="mb-12">
+      <h3 class="text-3xl font-bold mb-4">What is GlamConnect?</h3>
+      <p class="text-gray-700 text-lg">
+        GlamConnect is your all-in-one digital platform for discovering and booking beauty and salon services. Whether you need a haircut, spa treatment, or a full makeover, GlamConnect connects you with trusted professionals around your city — quickly and effortlessly.
+      </p>
+    </section>
+
+    <!-- Features -->
+    <section class="mb-12">
+      <h3 class="text-2xl font-semibold mb-4">Key Features</h3>
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-md transition">
+          <h4 class="text-xl font-semibold mb-2">🌟 Discover Services</h4>
+          <p>Browse salons and services near you based on ratings, location, and specialties.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-md transition">
+          <h4 class="text-xl font-semibold mb-2">📅 Smart Booking</h4>
+          <p>Book and manage appointments, track status, and receive reminders seamlessly.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-md transition">
+          <h4 class="text-xl font-semibold mb-2">📈 Business Dashboard</h4>
+          <p>Salon owners get powerful tools to manage services, appointments, and growth.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-md transition">
+          <h4 class="text-xl font-semibold mb-2">🔐 Secure & Scalable</h4>
+          <p>Built with data privacy and platform management in mind for admins and users.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who We Serve -->
+    <section class="mb-12">
+      <h3 class="text-2xl font-semibold mb-4">Who We Serve</h3>
+      <ul class="list-disc list-inside text-gray-700 text-lg space-y-2">
+        <li><strong>Customers:</strong> Seek reliable, convenient, and fast beauty services.</li>
+        <li><strong>Salon Owners:</strong> Want to grow their digital presence and manage appointments efficiently.</li>
+        <li><strong>Admins:</strong> Monitor system activity, moderate listings, and manage user access.</li>
       </ul>
-    </p>
+    </section>
 
-    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Our Mission</h3>
-    <p class="text-gray-700 mb-6">
-      We aim to simplify the way people connect with beauty services by offering an efficient, user-friendly booking platform that benefits both customers and salon owners.
-    </p>
+    <!-- Our Mission -->
+    <section>
+      <h3 class="text-2xl font-semibold mb-4">Our Mission</h3>
+      <p class="text-gray-700 text-lg">
+        At GlamConnect, we aim to transform the beauty service experience through technology —
+        offering seamless discovery, trustworthy connections, and simplified bookings for all.
+      </p>
+    </section>
+  </main>
 
-  
-  <footer class="bg-black text-white mt-20 py-10 px-10">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  <!-- Footer -->
+  <footer class="bg-black text-white py-10 mt-20">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 text-center md:text-left">
       <div>
-        <h4 class="font-bold mb-2">About GlamConnect</h4>
-        <ul>
+        <h4 class="font-bold mb-3">About GlamConnect</h4>
+        <ul class="space-y-1 text-sm">
           <li><a href="#" class="hover:underline">Careers</a></li>
           <li><a href="#" class="hover:underline">Career Support</a></li>
         </ul>
       </div>
       <div>
-        <h4 class="font-bold mb-2">For Business</h4>
-        <ul>
+        <h4 class="font-bold mb-3">For Business</h4>
+        <ul class="space-y-1 text-sm">
           <li><a href="#" class="hover:underline">For Partners</a></li>
           <li><a href="#" class="hover:underline">Support</a></li>
-          <li><a href="#" class="hover:underline">Status</a></li>
+          <li><a href="#" class="hover:underline">System Status</a></li>
         </ul>
       </div>
       <div>
-        <h4 class="font-bold mb-2">Social Media</h4>
-        <ul>
+        <h4 class="font-bold mb-3">Follow Us</h4>
+        <ul class="space-y-1 text-sm">
           <li><a href="#" class="hover:underline">Facebook</a></li>
           <li><a href="#" class="hover:underline">Instagram</a></li>
           <li><a href="#" class="hover:underline">Twitter</a></li>
         </ul>
       </div>
     </div>
+    <p class="text-center text-sm mt-6 text-gray-400">&copy; <?= date('Y') ?> GlamConnect. All rights reserved.</p>
   </footer>
+
 </body>
 </html>

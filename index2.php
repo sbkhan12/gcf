@@ -37,8 +37,8 @@ if ($currentCategory !== 'All' && !in_array($currentCategory, $categories)) {
         <ul class="flex gap-6 text-gray-700">
           <li><a href="/gcf/backend/dashboard_business.php" class="hover:text-black">Dashboard</a></li>
           <li><a href="about.html" class="hover:text-black">About</a></li>
-          <li><a href="Business_login.html" class="hover:text-black">Business Login</a></li>
-          <li><a href="customer_login.html" class="hover:text-black">Customer Login</a></li>
+          <!-- <li><a href="Business_login.html" class="hover:text-black">Business Login</a></li>
+          <li><a href="customer_login.html" class="hover:text-black">Customer Login</a></li> -->
         </ul>
       </nav>
     </div>
