@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Business Signup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+
+  <div class="bg-white p-8 rounded-xl shadow-xl w-full max-w-xl">
+    <h1 class="text-3xl font-semibold mb-6 text-center">Create a Professional Account</h1>
+    
+    <form action="backend/signup.php" method="POST" enctype="multipart/form-data" class="space-y-4">
+
+      <!-- Owner Name -->
+      <input type="text" name="owner" placeholder="Owner name" required
+        class="p-3 border-2 rounded-lg w-full hover:border-gray-500 shadow-md"/>
+
+      <!-- Salon Name -->
+      <input type="text" name="salon" placeholder="Salon Name" required
+        class="p-3 border-2 rounded-lg w-full hover:border-gray-500 shadow-md"/>
+
+      <!-- Email -->
+      <input type="email" name="email" placeholder="Email" required
+        class="p-3 border-2 rounded-lg w-full hover:border-gray-500 shadow-md"/>
+
+      <!-- Password -->
+      <input type="password" name="password" placeholder="Password" required
+        class="p-3 border-2 rounded-lg w-full hover:border-gray-500 shadow-md"/>
+
+      <!-- Confirm Password -->
+      <input type="password" name="cpassword" placeholder="Confirm Password" required
+        class="p-3 border-2 rounded-lg w-full hover:border-gray-500 shadow-md"/>
+
+      <!-- Address -->
+      <input type="text" name="address" placeholder="Address" required
+        class="p-3 border-2 rounded-lg w-full hover:border-gray-500 shadow-md"/>
+
+      <!-- City -->
+      <select name="city" required
+        class="p-3 border-2 rounded-lg w-full hover:border-gray-500 shadow-md bg-white">
+        <option value="" disabled selected>City</option>
+        <option value="Rawalpindi">Rawalpindi</option>
+        <option value="Islamabad">Islamabad</option>
+        <option value="Lahore">Lahore</option>
+        <option value="Karachi">Karachi</option>
+      </select>
+
+      <!-- Image Upload -->
+      <div class="pt-2">
+        <label class="block mb-2 font-medium text-gray-700">Upload Salon Image</label>
+        <input type="file" name="image" accept="image/*" required
+          class="block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-black file:text-white hover:file:bg-gray-800"/>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit"
+        class="w-full mt-4 bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition font-medium shadow-md">
+        Create Account
+      </button>
+
+    </form>
+  </div>
+
+</body>
+</html>

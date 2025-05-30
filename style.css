@@ -1,0 +1,30 @@
+.image{
+    
+    width: 700px;
+    height: 600px;
+}
+.homeimage{
+    
+    width:  1400px;
+    height: 600px;
+    
+}
+.tab{
+ width: 70cap;
+ ;
+}
+.carousel{
+    
+    width:  1400px;
+    height: 600px;
+    
+}
+/* Add this to your CSS file */
+footer {
+    background-color: #000; /* black */
+    color: #fff;            /* optional: makes text white for contrast */
+}
+.site-footer {
+    background-color: #000;
+    color: #fff;
+}
