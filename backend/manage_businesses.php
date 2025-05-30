@@ -20,13 +20,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rating_id'], $_POST['rating'])) {
     $ratingId = $_POST['rating_id'];
     $newRating = $_POST['rating'];
-    $stmt = $conn->prepare("UPDATE business_users SET rating = ? WHERE id = ?");
-    $stmt->execute([$newRating, $ratingId]);
+
+    // Only allow 'Recommended' or 'Top Rated' for security
+    if (in_array($newRating, ['Recommended', 'Top Rated'])) {
+        $stmt = $conn->prepare("UPDATE business_users SET rating_category = ? WHERE id = ?");
+        $stmt->execute([$newRating, $ratingId]);
+    }
+
     header("Location: " . $_SERVER['PHP_SELF']);
     exit();
 }
 
-$stmt = $conn->query("SELECT id, salon, email, city, rating, created_at FROM business_users ORDER BY created_at DESC");
+$stmt = $conn->query("SELECT id, salon, email, city, rating_category, created_at FROM business_users ORDER BY created_at DESC");
 $businesses = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -78,9 +83,8 @@ $businesses = $stmt->fetchAll(PDO::FETCH_ASSOC);
               <form method="POST" class="flex gap-2 items-center">
                 <input type="hidden" name="rating_id" value="<?= $biz['id'] ?>">
                 <select name="rating" class="border rounded px-2 py-1 text-sm">
-                  <option <?= $biz['rating'] == 'Top Rated' ? 'selected' : '' ?>>Top Rated</option>
-                  <option <?= $biz['rating'] == 'Best' ? 'selected' : '' ?>>Best</option>
-                  <option <?= $biz['rating'] == 'Low Rated' ? 'selected' : '' ?>>Low Rated</option>
+                  <option value="Recommended" <?= $biz['rating_category'] == 'Recommended' ? 'selected' : '' ?>>Recommended</option>
+                  <option value="Top Rated" <?= $biz['rating_category'] == 'Top Rated' ? 'selected' : '' ?>>Top Rated</option>
                 </select>
                 <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded text-sm">Update</button>
               </form>
